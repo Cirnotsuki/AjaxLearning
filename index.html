@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="http://localhost/sql.php" method="get">
+			<label for="user">用户名</label><input type="text" name="user" id="user"><br>
+			<label for="pass">密码</label><input type="password" name="pass" id="pass"><br>
+			<input type="submit" value="登录">
+			<a href="sign.html">注册</a>
+		</form>
+		<a href="cookie.html">cookie</a>
+		<script>
+			// 客户端一般做异步处理,服务端一般做同步处理
+			// 短连接 客户端与服务端握手,并发送数据,服务端处理数据之后发回给客户端
+			// 长链接: 视频、聊天、网游,通过服务端和客户端握手后,两方不再断开链接,数据可以互相发送
+			// 		心跳测试:每隔一段时间发送一次数据,判断客户端和服务端是否一直保持连接
+			// ajax 短连接
+			// webSocket 长连接
+			// XMLHttpRequest 
+			// Level1 不能跨域
+			// Level2 可以发送请求的超时时间
+			// var xhr = new XMLHttpRequest();
+			// xhr.open("GET","http://localhost:12450/ajax.php?user=Tuzi&off=false");
+			// xhr.addEventListener("load",loadHandler);
+			// xhr.send();
+            //
+			// function loadHandler(e){
+			//     var t = e.type;
+			//     var a = 1;
+			//     console.log(this);
+			// 	console.log(this.response);
+			// }
+		</script>
+	</body>
+</html>

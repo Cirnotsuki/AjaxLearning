@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="postest.php" method="post">
+        <input type="password" name="pass">
+        <input type="submit">
+    </form>
+    <script>
+        document.cookie = "username=ojbk";
+        document.cookie = "age=10";
+        // 1 必须是服务器开启时才能设置cookie
+        // 2 cookie 储存内容不大于5k
+        // 3 cookie 是以域名存放区分的，不能访问其他域的cookie
+        //      ip相同但端口不同也是不一样的域
+        //      同一个域是共享同样的cookie的
+        // 4 cookie 储存的只能是数值或字符串
+        // 5 如果需要储存非字符串的内容，首先要将他变成字符串
+        // 6 cookie 储存在一个域中的数量是有限的，一般为50条
+        // 7 如果想要长期储存cookie
+        // 8 cookie 不能跨浏览器
+        var obj = {a:1,b:2,c:3,d:4};
+        var objstr = JSON.stringify(obj)
+        // JSON.stringify() 将对象转换为字符串
+        // 设置过期时间 使用 ;expires= 设置
+        var date = new Date();
+        date.setDate(21);
+        document.cookie = "obj="+objstr+";expires="+date.toString();
+        console.log(document.cookie);
+        console.log(JSON.parse(objstr)) // 将字符串转化为对象
+
+        // 过去，第一次打开页面时，先查看该域下有没有这个token（服务器PHP页面查看）
+        // 现在，第一次打开页面时，通过ajax将cookie传送给服务端程序中（主动传送）
+        // 如果没有token => 跳转到登录页面（或者等待用户点击登录）
+        //   -> 输入用户名和密码登录页面时
+
+
+        // md5加密：需要md5.js
+        // submit 的 post 之前可以对input的value值进行修改
+        var form = document.querySelector("form");
+        form.addEventListener("submit",submitHandler);
+        
+        function submitHandler(e) {
+            var input = document.querySelectorAll("input")[0];
+            // e.preventDefault();
+            // console.log(input[0].value);
+            // input[0].value = "abcdefg";
+            // md5 加密
+            // input.value = hex_md5(input.value);
+        }
+    </script>
+</body>
+</html>
