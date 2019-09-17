@@ -5,14 +5,125 @@
 		<title></title>
 	</head>
 	<body>
-		<form action="http://localhost/sql.php" method="get">
+		<form action="http://localhost/login.php" method="post" id="login">
 			<label for="user">用户名</label><input type="text" name="user" id="user"><br>
 			<label for="pass">密码</label><input type="password" name="pass" id="pass"><br>
 			<input type="submit" value="登录">
 			<a href="sign.html">注册</a>
 		</form>
+		<div>请输入用户名和密码</div><br>
+		<button style="display: none;" id="logout">登出</button>
+
+		<br><br><br><br><br><br><br><br><br><br>
 		<a href="cookie.html">cookie</a>
+		<form action="postest.php" method="post">
+			<label for="comment">讨论</label><input type="text" name="comment" id="comment"><br>
+			<input type="submit" value="发送">
+		</form>
+		
+		<script src="./js/Utils.js"></script>
 		<script>
+			var form,user,pass,div,bn;
+			init();
+			function init() {
+				form = document.getElementById("login");
+				user = document.getElementById("user");
+				pass = document.getElementById("pass");
+                div = document.getElementsByTagName("div")[0];
+                bn = document.getElementsByTagName("button")[0];
+                Utils.defendXSSLight();
+                form.addEventListener("submit",submitHandler);
+                form.login = false;
+                bn.addEventListener("click",clickHandler);
+
+                login(true);
+            }
+            function clickHandler() {
+
+                Utils.deleteCookie("RabiUid");
+                Utils.deleteCookie("RabiUid_ckMd5");
+                login(false);
+            }
+
+            function submitHandler(e) {
+                e.preventDefault();
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST","login.php?"+"tpye=submit"+"&user="+user.value);
+                xhr.addEventListener("load",loadHandler);
+                xhr.send();
+                function loadHandler(e){
+                    var arr = JSON.parse(this.response);
+                    if(arr == false){
+                        login(false);
+                        return;
+                    }
+                    if(pass.value==""){
+                        login(false);
+                        return;
+                    }
+                    var brr = pasidify(pass.value);
+                    pass.value = pafirm(arr[1],brr[0],brr[1],brr[2],brr[3]);
+                    if(pass.value != arr[0]){
+                        return;
+                    }
+                    form.login = true;
+                    login(true);
+                }
+            }
+
+            function login(bool){
+				if(!bool){
+				    div.innerHTML = "用户名或密码输入错误";
+					form.style.display = "block";
+                    bn.style.display = "none";
+					return;
+				}
+				form.style.display = "none";
+                bn.style.display = "block";
+				if(form.login){
+                    var ck = randomString();
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST","login.php?"+"tpye=login"+"&user="+user.value+"&ck="+ck);
+                    xhr.addEventListener("load",function(){
+                        Utils.setCookie("RabiUid",this.response.toString(),0.01);
+                        Utils.setCookie("RabiUid_ckMd5",ck,0.01);
+                        div.innerHTML = "欢迎登陆";
+                    });
+                    xhr.send();
+                    return
+				}
+				if(Utils.getCookie("RabiUid").length>0){
+                    console.log(document.cookie)
+                    var xhr = new XMLHttpRequest();
+                    var id = Utils.getCookie("RabiUid");
+                    var ck = Utils.getCookie("RabiUid_ckMd5");
+                    xhr.open("POST","login.php?"+"tpye=autoLogin"+"&id="+id+"&ck="+ck);
+                    xhr.addEventListener("load",function(){
+                        if(this.response=="true"){
+                            div.innerHTML = "欢迎回来";
+                        }else if(this.response=="false"){
+                            login(false);
+                        }
+                    });
+                    xhr.send();
+                    return
+				}
+                form.style.display = "block";
+                bn.style.display = "none";
+
+			}
+
+
+
+
+			// var pass = "asd123'";
+			// console.log(shamdive(pass));
+			// console.log(sm);
+			// function submitHandler(e) {
+			// 	e.preventDefault();
+			// 	console.log(this.textChild)
+			//     // this.value = this.value.replace(/javascript|script|\/script/gi,"fuckyou")
+   //          }
 			// 客户端一般做异步处理,服务端一般做同步处理
 			// 短连接 客户端与服务端握手,并发送数据,服务端处理数据之后发回给客户端
 			// 长链接: 视频、聊天、网游,通过服务端和客户端握手后,两方不再断开链接,数据可以互相发送
@@ -22,17 +133,9 @@
 			// XMLHttpRequest 
 			// Level1 不能跨域
 			// Level2 可以发送请求的超时时间
-			// var xhr = new XMLHttpRequest();
-			// xhr.open("GET","http://localhost:12450/ajax.php?user=Tuzi&off=false");
-			// xhr.addEventListener("load",loadHandler);
-			// xhr.send();
+
             //
-			// function loadHandler(e){
-			//     var t = e.type;
-			//     var a = 1;
-			//     console.log(this);
-			// 	console.log(this.response);
-			// }
+
 		</script>
 	</body>
 </html>
