@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var obj ={
+            type:"post",
+            user:"兔子",
+            age:10
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST","http://192.168.0.106:12450");
+        xhr.addEventListener("load",function(e){
+            console.log(JSON.parse(this.response))
+        });
+        xhr.send(encodeURIComponent(JSON.stringify(obj)));
+        // 热更新
+        setInterval(animation,16);
+        function animation() {
+            // 加载本地JSON
+            var xhrj = new XMLHttpRequest();
+            xhrj.open("GET","./JSON/package.json");
+            xhrj.addEventListener("load",function(e){
+                this.removeEventListener("load",e);
+                var obj = JSON.parse(this.response);
+                document.body.style.backgroundColor = obj.backgroundColor;
+            });
+            xhrj.send();
+        }
+
+    </script>
+</body>
+</html>

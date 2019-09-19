@@ -16,6 +16,8 @@
 
 		<br><br><br><br><br><br><br><br><br><br>
 		<a href="cookie.html">cookie</a>
+		<a href="node.html">Node</a>
+		<a href="chatroom.html">Chat</a>
 		<form action="postest.php" method="post">
 			<label for="comment">讨论</label><input type="text" name="comment" id="comment"><br>
 			<input type="submit" value="发送">
@@ -39,7 +41,6 @@
                 login(true);
             }
             function clickHandler() {
-
                 Utils.deleteCookie("RabiUid");
                 Utils.deleteCookie("RabiUid_ckMd5");
                 login(false);
@@ -70,7 +71,11 @@
                     login(true);
                 }
             }
-
+            function jumpto (url,s=3000){
+                setTimeout(function () {
+                    window.location = url;
+                },s)
+            }
             function login(bool){
 				if(!bool){
 				    div.innerHTML = "用户名或密码输入错误";
@@ -85,24 +90,25 @@
                     var xhr = new XMLHttpRequest();
                     xhr.open("POST","login.php?"+"tpye=login"+"&user="+user.value+"&ck="+ck);
                     xhr.addEventListener("load",function(){
-                        Utils.setCookie("RabiUid",this.response.toString(),0.01);
-                        Utils.setCookie("RabiUid_ckMd5",ck,0.01);
-                        div.innerHTML = "欢迎登陆";
+                        Utils.setCookie("RabiUid",this.response.toString(),0.4);
+                        Utils.setCookie("RabiUid_ckMd5",ck,0.4);
+                        div.innerHTML = "欢迎登陆~3秒后跳转到聊天室";
+                        jumpto("./chatroom.html",3000);
                     });
                     xhr.send();
                     return
 				}
 				if(Utils.getCookie("RabiUid").length>0){
-                    console.log(document.cookie)
                     var xhr = new XMLHttpRequest();
                     var id = Utils.getCookie("RabiUid");
                     var ck = Utils.getCookie("RabiUid_ckMd5");
                     xhr.open("POST","login.php?"+"tpye=autoLogin"+"&id="+id+"&ck="+ck);
                     xhr.addEventListener("load",function(){
-                        if(this.response=="true"){
-                            div.innerHTML = "欢迎回来";
-                        }else if(this.response=="false"){
+                        if(this.response=="false"){
                             login(false);
+                        }else{
+							div.innerHTML = "欢迎回来~3秒后跳转到聊天室";
+							jumpto("./chatroom.html",3000);
                         }
                     });
                     xhr.send();

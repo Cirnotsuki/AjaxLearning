@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div:last-of-type{
+				margin-top: 2px;
+				width: 102px;
+				height: 22px;
+				text-align: center;
+				box-shadow: inset 1px 1px 1px gray;
+				border: solid 1px gray;
+				display: none;
+			}
+			#msglist{
+
+				width: 800px;
+				height: 500px;
+				overflow: auto;
+				word-wrap: break-word;
+				font-size: 16px;
+			}
+			#user{
+				width: 100px;
+				text-align: center;
+			}
+			#msg{
+				width: 583px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>欢迎来到聊天室</div>
+		<textarea title="msglist" id="msglist" style="width: 800px;height: 400px;"></textarea><br/>
+		<input type="text" id="user" title="user">
+		<div>用户名</div>
+		<input type="text" id="msg" title="msg">
+		<button type="button">发送</button>
+		<button type="button" style="display: none">登出</button>
+		<script src="./js/Utils.js"></script>
+		<script>
+			var user,msg,msgList,bn,username,logout;
+			init();
+			function init(){
+				msgList = document.getElementById("msglist");
+				msg = document.getElementById("msg");
+				user = document.getElementById("user");
+				bn = document.getElementsByTagName("button")[0];
+				bn.addEventListener("click",clickHandler);
+                logout = document.getElementsByTagName("button")[1];
+                logout.addEventListener("click",logoutHandler);
+				msg.addEventListener("keyup",clickHandler);
+                msgList.addEventListener("scroll",scrollHandler);
+				msglist.scrollBool = true;
+				// 进入时先判定登录状态
+                AutoLogin();
+                // 更新登录信息
+                loginRefresh();
+                // 设置自发送数据
+				//
+				setInterval(animation,500);
+			}
+            function loginRefresh() {
+                if(user.login){
+                    user.style.display="none";
+                    document.getElementsByTagName("div")[1].innerHTML = username;
+                    logout.style.display="inline-block";
+                    document.getElementsByTagName("div")[1].style.display="inline-block";
+                }else{
+                    user.style.display="inline-block";
+                    logout.style.display="none";
+                    document.getElementsByTagName("div")[1].style.display="none";
+                }
+            }
+            function animation(){
+                ajax({type:2});
+                loginRefresh();
+            }
+            function logoutHandler() {
+                Utils.deleteCookie("RabiUid");
+                Utils.deleteCookie("RabiUid_ckMd5");
+                user.login=false;
+                username="";
+                loginRefresh();
+
+            }
+            function clickHandler(e){
+                if(e.type==="click" || (e.type==="keyup"&& e.keyCode===13)){
+                    var name;
+                    if(user.login){
+                        if(msg.value.trim()===""){
+                            return
+                        }
+                        name=username;
+                    }else{
+                        if(user.value.trim()==="" || msg.value.trim()===""){
+                            return
+                        }
+                        name=user.value;
+                    }
+
+                    var date = new Date();
+                    var time = "("+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+"):";
+
+                    ajax({
+                        type:1,
+                        name: name,
+                        msg:msg.value,
+                        date:time
+                    });
+                    msg.value = "";
+                    msglist.scrollBool = true;
+                }
+            }
+
+            function ajax(obj){
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST","http://192.168.0.106:9527");
+                xhr.addEventListener("load",function(e){
+                    this.removeEventListener("load",e);
+                    var arr = JSON.parse(decodeURIComponent(this.response)).result;
+                    var msgs = "";
+                    for(i in arr){
+                        msgs+=arr[i].name+arr[i].date+"\n"+arr[i].msg+"\n\n";
+                    }
+                    msgList.value = msgs;
+
+                    if(!msglist.scrollBool)return;
+                    msgList.scrollTop=msgList.scrollHeight;
+                    if(!msgList.scrollMax || msgList.scrollMax<msgList.scrollTop){
+                        msgList.scrollMax = msgList.scrollTop
+                    }
+                });
+                xhr.send(encodeURIComponent(JSON.stringify(obj)));
+            }
+
+            function scrollHandler(e) {
+                if(msgList.scrollTop>=msgList.scrollMax-100){
+                    msglist.scrollBool = true;
+                }else if(msgList.scrollTop<msgList.scrollMax-100){
+                    msglist.scrollBool = false;
+                }
+            }
+            function AutoLogin() {
+                if (Utils.getCookie("RabiUid").length > 0) {
+                    var xhr = new XMLHttpRequest();
+                    var id = Utils.getCookie("RabiUid");
+                    var ck = Utils.getCookie("RabiUid_ckMd5");
+                    xhr.open("POST", "login.php?" + "tpye=autoLogin" + "&id=" + id + "&ck=" + ck);
+                    xhr.addEventListener("load", function () {
+                        if(this.response=="false"){
+                            user.login = false;
+                            return
+                        }else{
+                            username = this.response;
+                            if(!user.login){
+                                ajax({
+                                    type:1,
+                                    name: this.response+"进入了聊天室。",
+                                    msg:"",
+                                    date:""
+                                });
+							}
+                            user.login = true;
+                            document.getElementsByTagName("div")[0].innerHTML = "欢迎回来:"+this.response;
+                        }
+                    });
+                    xhr.send();
+                }
+            }
+		</script>
+	</body>
+</html>

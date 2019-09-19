@@ -44,11 +44,11 @@ function openSQL(){
             break;
         case "autoLogin":
             $id = $_REQUEST["id"];
-            $list = mysqli_query($sql,"SELECT `ckMd5` FROM `user` WHERE uid LIKE '$id'");
+            $list = mysqli_query($sql,"SELECT `ckMd5`,`name` FROM `user` WHERE uid LIKE '$id'");
             // 返回密码值和掩码值
             $obj = mysqli_fetch_array($list);
             if($_REQUEST["ck"] == $obj["ckMd5"]){
-               echo "true";
+               echo $obj["name"];
             }else{
                 echo "false";
             }
