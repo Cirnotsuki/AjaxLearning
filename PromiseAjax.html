@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function ajax(method,url,arg) {
+            return new Promise(function (res,rej) {
+               var xhr=new XMLHttpRequest();
+               if(method.toLowerCase()==="get"){
+                   url+="?"+arg;
+               }
+               xhr.open(method,url);
+               xhr.onreadystatechange=function(e){
+                   console.log(xhr.readyState,xhr.status);
+                   if(xhr.readyState===4 && xhr.status===200){
+                       res(xhr.response);
+                   }else if(xhr.readyState===4 && xhr.status!=200){
+                       rej("发送失败")
+                   }
+               };
+               xhr.send(method.toLowerCase()==="post"?arg:"");
+            });
+        }
+
+        ajax("get","http://192.168.0.106:450","a=3&age=4").then(function (res) {
+           console.log(res);
+        }).catch(function (err) {
+            console.log(err);
+        });
+    </script>
+</body>
+</html>

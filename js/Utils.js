@@ -1,4 +1,3 @@
-document.write("<script></script>");
 var Utils={
 	defendXSS:function(){
 		var submits = document.getElementsByTagName("form");

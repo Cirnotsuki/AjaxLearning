@@ -130,6 +130,8 @@
 			// 	console.log(this.textChild)
 			//     // this.value = this.value.replace(/javascript|script|\/script/gi,"fuckyou")
    //          }
+			// 以下是笔记
+
 			// 客户端一般做异步处理,服务端一般做同步处理
 			// 短连接 客户端与服务端握手,并发送数据,服务端处理数据之后发回给客户端
 			// 长链接: 视频、聊天、网游,通过服务端和客户端握手后,两方不再断开链接,数据可以互相发送
@@ -139,8 +141,42 @@
 			// XMLHttpRequest 
 			// Level1 不能跨域
 			// Level2 可以发送请求的超时时间
-
-            //
+			// about timeout request 都必须在send之前 open 之后
+            // send 方法
+			// send() 什么也不发，get请求时
+			// POST：
+			// send(String) 发送字符串；queryString，1 变量名1=值1&变量名2=值2，JSON字符串
+			// send(document);发送DOM对象和XML数据
+			// send(formDate) data= new FormData() 提交表单数据，通常运用于网页中上传文件
+			// send(ArrayBuffer) 发送二进制数据流
+			// readystatechange
+			// readystate
+			// 0 XMLHttpRequest(); 已经创建
+			// 1 调用了open方法
+			// 2 调用了写入头部并且已经send发送
+			// 3 正在传输数据，已经收到了数据头
+			// 4 Finish 已经传输完成或者已经失败，已经完成了通信
+			//
+			// load 事件是 xhr.readyState===4 时才成功
+			// readyState===4 && status===200 时表示通信成功
+			// load 以后只在加载本地文件时使用，以后都用readystatechange方法
+			// loadstart，当程序开始加载时，loadstart事件将被触发，一般用于大文件
+			// Progress 进度事件会被触发时用来指示一个操作正在进行
+			//		loaded	当前加载字节
+			//		total	总字节
+			// about 当一个资源加载终止时，将触发about事件
+			//
+			// 跨域
+			// 1 jsonp 跨域，不是Ajax通信
+			// 2 cors 跨域解决，加载预设好的xml文件
+			// 3 websocket 解决
+			// JSONP
+			var script=document.createElement("script");
+            script.src="http://192.168.0.106:3003?a=3&b=4&fn=cb";
+            document.body.appendChild(script);
+			function cb(a,b){
+				console.log(a,b)
+			}
 
 		</script>
 	</body>
