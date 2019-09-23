@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            overflow: hidden;
+        }
+        #flame{
+            width:500px;
+            margin: auto;
+            margin-top: 150px;
+        }
+        input{
+            display: inline-block;
+            width:400px;
+            height:36px;
+            font-size: 24px;
+        }
+
+        #showText{
+            display: none;
+            margin-top: 0px;
+            border:solid 1px gray;
+            width:400px;
+            height: auto;
+            text-align: left;
+            left: 0px;
+            top: 0px;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+            cursor: pointer;
+        }
+        span{
+            user-select:none;
+            text-align: center;
+            display: inline-block;
+            border:solid 1px #FF44FF;
+            background-color: #FF66FF;
+            width:80px;
+            height:36px;
+            line-height: 36px;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+        span:hover{
+            border:solid 1px #FF77FF;
+            background-color: #FF99FF;
+        }
+        span:active{
+            border:solid 1px #FF11FF;
+            background-color: #FF33FF;
+        }
+    </style>
+</head>
+<body>
+    <div id="flame">
+        <div style="color: hotpink;font-size: 60px;text-align: center;margin-bottom: 20px">兔子搜索</div>
+        <div>
+            <input type="text" id="bdinput"><span id="search">搜索</span>
+        </div>
+        <div id="showText"></div>
+    </div>
+
+    <script>
+        var bdScipt,bdInput,bdShowText,bdList,bn,throt;
+        init();
+        function init() {
+            bdInput=document.getElementById("bdinput");
+            bdShowText = document.getElementById("showText");
+
+            bn = document.getElementById("search");
+            bn.addEventListener("click",bdSearch);
+            bdInput.addEventListener("input",inputHandler);
+            bdInput.addEventListener("keyup",bdSearch);
+            document.addEventListener("keydown",bdSearch);
+            bdInput.value = "";
+            bdInput.index = -1;
+            bdInput.onselect = false;
+
+        }
+        setInterval(function () {
+            if(bdShowText.innerText=="" || bdInput.value==""){
+                bdShowText.style.display="none"
+            }else{
+                bdShowText.style.display="block";
+            }
+        },200);
+        function inputHandler() {
+            throt=setTimeout(throtHandler,200);
+        }
+
+        function throtHandler() {
+            clearTimeout(throt);
+            if(bdScipt){
+                bdScipt.remove();
+                bdScipt=null;
+            }
+            bdScipt=document.createElement("script");
+            bdScipt.src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+bdInput.value+"&json=1&p=3&sid=22084_1436_13548_21120_22036_22073&req=2&csor=0&cb=callback";
+            document.body.appendChild(bdScipt);
+            bdInput.index=-1
+        }
+
+        function callback(data) {
+            // 初始化备选词数值
+            bdShowText.innerHTML="<ul></ul>";
+            if(!bdList){
+
+            }else if(bdList.childElementCount>0){
+                bdList.removeEventListener("click",clickHandler)
+                bdList.removeEventListener("mouseover",mouseoverHandler);
+            }
+            // 添加备选词
+            for(i in data.s){
+                var li = document.createElement("li");
+                li.innerHTML = data.s[i];
+                li.index = i;
+                bdShowText.firstElementChild.appendChild(li);
+            }
+            // 添加点击事件
+            if(data.s.length>0){
+                bdList=bdShowText.firstElementChild;
+                bdList.addEventListener("click",clickHandler);
+                bdList.addEventListener("mouseover",mouseoverHandler);
+            }
+
+        }
+        function mouseoverHandler(e) {
+            if(e.target.constructor !== HTMLLIElement) return;
+            lis = document.getElementsByTagName("li");
+            e.target.style.backgroundColor="#FF99FF";
+            for(var i=0;i<lis.length;i++){
+                if(i==e.target.index) continue;
+                lis[i].style.backgroundColor="white";
+            }
+            bdInput.index = e.target.index;
+
+        }
+        function clickHandler(e) {
+            if(e.target.constructor!==HTMLLIElement) return;
+            bdInput.value = e.target.innerHTML;
+            throtHandler();
+            bdSearch(e);
+        }
+        function bdSearch(e){
+            var keyword,lis;
+            try{
+                if(e.type==="keydown" && bdList.childElementCount>0){
+                    if(e.keyCode===38){
+                        bdInput.index --;
+                        if(bdInput.index <=-1){
+                            bdInput.index = bdList.childElementCount-1;
+                        }
+                        bdInput.onselect = true;
+                    }
+                    if(e.keyCode===40){
+                        bdInput.index ++;
+                        if(bdInput.index >= bdList.childElementCount){
+                            bdInput.index = 0;
+                        }
+                        bdInput.onselect = true;
+                    }
+                    lis = document.getElementsByTagName("li");
+                    lis[bdInput.index].style.backgroundColor="#FF99FF";
+                    for(var i=0;i<lis.length;i++){
+                        if(i==bdInput.index) continue;
+                        lis[i].style.backgroundColor="white";
+                    }
+                    if(bdInput.onselect===false) return;
+                    if(e.keyCode===13){
+                        bdInput.onselect=false;
+                        bdInput.value = lis[bdInput.index].innerHTML;
+                        throtHandler();
+                        return
+                    }
+                }
+            }catch{}
+            if(bdInput.onselect) return;
+            if(e.type==="click" || (e.type==="keyup"&& e.keyCode===13)){
+                if(bdInput.value=="") return;
+                keyword = encodeURIComponent(bdInput.value);
+                window.open("https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=monline_4_dg&wd="+keyword+"&oq=abc&rsv_pq=912a17fa0006a307&rsv_t=27efBcSaZGvx7Lps1ntxcbtvyx9W0%2FTbmyiQ59K8Ihbfy%2FrKdkikm7%2BeZ4clCRX9t%2ByM&rqlang=cn&rsv_enter=0&rsv_dl=tb&inputT=808&rsv_sug3=8&rsv_sug1=7&rsv_sug7=100&rsv_sug2=0&rsv_sug4=1661")
+            }
+        }
+    </script>
+</body>
+</html>
