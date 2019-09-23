@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 50px;
+        }
+        .col-sm-3:nth-child(1){
+            background-color: red;
+        }
+        .col-sm-3:nth-child(2){
+            background-color: yellow;
+        }
+        .col-sm-3:nth-child(3){
+            background-color: blue;
+        }
+        .col-sm-3:nth-child(4){
+            background-color: aqua;
+        }
+    </style>
+    <!--bootstrap 引用-->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!--<button class="btn btn-default">按钮</button>-->
+    <!--一行允许12个col-->
+    <div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3"></div>
+    </div>
+    <script>
+        // 增加className
+        function addClass(elem,cname) {
+            // 以空格分隔字符串
+            var arr = elem.className.split(/\s/);
+            if(arr.indexOf(cname)>-1) return;
+            arr.push(cname);
+            elem.className = arr.join(" ")
+        }
+        function removeClass(elem,cname) {
+            // 以空格分隔字符串
+            var arr = elem.className.split(/\s/);
+            var index = arr.indexOf(cname);
+            if(arr.indexOf(cname)==-1) return;
+            arr.splice(index,1);
+            elem.className = arr.join(" ");
+        }
+    </script>
+</body>
+</html>

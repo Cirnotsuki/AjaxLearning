@@ -15,7 +15,48 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="cookie.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cookie.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bootstrap.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1305">
+              <caret line="4" column="24271" lean-forward="false" selection-start-line="4" selection-start-column="24271" selection-end-line="4" selection-end-column="24271" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,6 +93,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/server/JSONP.js" />
         <option value="$PROJECT_DIR$/Jsonp.html" />
+        <option value="$PROJECT_DIR$/bootstrap.html" />
       </list>
     </option>
   </component>
@@ -104,6 +146,63 @@
               <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
               <item name="WWW" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WWW" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WWW" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WWW" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WWW" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+              <item name="external" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WWW" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+              <item name="external" type="462c0819:PsiDirectoryNode" />
+              <item name="sizzle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WWW" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+              <item name="external" type="462c0819:PsiDirectoryNode" />
+              <item name="sizzle" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WWW" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="WWW" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WWW" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ajax" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -118,6 +217,8 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
+    <property name="SearchEverywhereHistoryKey" value="class&#9;FILE&#9;file://D:/phpStudy/PHPTutorial/WWW/phpMyAdmin/libraries/Advisor.class.php" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -139,23 +240,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.JSONP.js">
+  <component name="RunManager" selected="JavaScript Debug.bootstrap.html">
     <configuration name="JSONP.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="JSONP.js" working-dir="$PROJECT_DIR$/server" />
+    <configuration name="bootstrap.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WWW/bootstrap.html" />
     <configuration name="chatServer.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="chatServer.js" working-dir="$PROJECT_DIR$/server" />
+    <configuration name="cookie.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WWW/cookie.html" />
     <configuration name="getServer.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="getServer.js" working-dir="$PROJECT_DIR$/server" />
-    <configuration name="postServer.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="postServer.js" working-dir="$PROJECT_DIR$/server" />
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Node.js.getServer.js" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.postServer.js" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.chatServer.js" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.JSONP.js" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.chatServer.js" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.JSONP.js" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.cookie.html" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.bootstrap.html" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.JSONP.js" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.getServer.js" />
-        <item index="2" class="java.lang.String" itemvalue="Node.js.chatServer.js" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.postServer.js" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.bootstrap.html" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.chatServer.js" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.cookie.html" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.JSONP.js" />
+        <item index="4" class="java.lang.String" itemvalue="Node.js.getServer.js" />
       </list>
     </recent_temporary>
   </component>
@@ -179,12 +283,12 @@
       <workItem from="1568882967705" duration="15467000" />
       <workItem from="1568960104789" duration="7044000" />
       <workItem from="1569225846913" duration="13988000" />
-      <workItem from="1569239858854" duration="397000" />
+      <workItem from="1569239858854" duration="3936000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88409000" />
+    <option name="totallyTimeSpent" value="91948000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -202,9 +306,9 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33554816" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3351469" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -229,29 +333,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/Utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="70" column="25" lean-forward="true" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/postest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="3" lean-forward="false" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cookie.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sign.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -396,14 +477,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login.html" />
     <entry file="file://$PROJECT_DIR$/post.php" />
-    <entry file="file://$PROJECT_DIR$/cookie.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="35" column="19" lean-forward="false" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sign.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -445,13 +518,6 @@
         <state relative-caret-position="42">
           <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -600,6 +666,46 @@
           <folding>
             <element signature="n#style#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="50" column="33" lean-forward="false" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cookie.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpMyAdmin/libraries/Advisor.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1305">
+          <caret line="4" column="24271" lean-forward="false" selection-start-line="4" selection-start-column="24271" selection-end-line="4" selection-end-column="24271" />
+          <folding />
         </state>
       </provider>
     </entry>
